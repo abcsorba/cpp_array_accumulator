@@ -2,22 +2,17 @@
 #define ARRACC_H
 
 #include <vector>
-// #include <algorithm>
 
 template <class T>
 class array_backup{
 
     private:
-
         T* arr;
         T* copy;
         int size;
 
     public:
-        array_backup(T* const arr, int size){
-            this->arr = arr;
-            this->copy = new T[size];
-            this->size = size;
+        array_backup(T* const arr, int size) : arr(arr), copy(new T[size]), size(size) {
             //saving the original array
             for(int i = 0; i < size; i++){
                 this->copy[i] = arr[i];
@@ -38,7 +33,6 @@ template <class T, class BinPred = std::plus<T> >
 class array_accumulater{
     
     private:
-
         std::vector<class array_backup<T>* > backup_storage;
         int size_of_arracc;
         T* last_element;
@@ -55,7 +49,6 @@ class array_accumulater{
         }
 
     public:
-
         array_accumulater(T* const arr, int size){
             back_it_up(arr, size);
             //saving the length of the first array stored in the vector
