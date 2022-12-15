@@ -76,15 +76,15 @@ class array_accumulater{
             return size_of_arracc;
         }
 
-        void add(T* const arr, const int &size) {
+        void add(T* const arr, int size) {
             //checking if the array is valid
             if(arr == NULL || size <= 0) return;
             //creating a new instance and adding the new array_backup to the vector
             back_it_up(arr, size);
             //updating the combined length of the arrays stored in the vector
             this->size_of_arracc += size;
-            //setting the first element of the new array to the last element of the previous array
-            *arr = *(this->last_element) + *(arr);
+            //setting the new value of the first element of the new array based on the last element of the previous array
+            *arr = BinPred()(*(this->last_element), *(arr));
             //accumulating the array
             accumulate(arr, size);
             //updating the last_element member
