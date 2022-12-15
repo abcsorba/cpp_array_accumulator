@@ -50,6 +50,8 @@ class array_accumulater{
 
     public:
         array_accumulater(T* const arr, int size){
+            //checking if the array is valid
+            if(arr == NULL || size <= 0) return;
             back_it_up(arr, size);
             //saving the length of the first array stored in the vector
             this->size_of_arracc = size;
@@ -75,6 +77,8 @@ class array_accumulater{
         }
 
         void add(T* const arr, const int &size) {
+            //checking if the array is valid
+            if(arr == NULL || size <= 0) return;
             //creating a new instance and adding the new array_backup to the vector
             back_it_up(arr, size);
             //updating the combined length of the arrays stored in the vector
